@@ -13,10 +13,12 @@
         <meta property="og:image" content="https://i.imgur.com/jeIyq1Z.png">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="css/navy-theme.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/tailwind/tailwind.min.css?v=3">
     <link rel="stylesheet" href="css/main.css?v=3">
-    <link rel="icon" type="image/png" href="images/favicon-64x64.png?v=3">
+    <link rel="icon" type="image/png" href="images/favicon-64x64.png?v=3?v=3?v=3">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
     <script type="text/javascript">
         (()=>{let a=document,d=window,n="lg-engage",o="https://lqa.craftedmatrix.com/api/data/js/engage.js";if(!a.getElementById(n)&&!d.__lgEngageLoaded){d.__lgEngageLoaded=!0;try{var e=a.createElement("link");e.rel="preconnect",e.href="https://lqa.craftedmatrix.com",e.crossOrigin="anonymous",(a.head||a.body).appendChild(e)}catch(e){}"loading"===a.readyState?a.addEventListener("DOMContentLoaded",r,{once:!0}):r()}function t(){if(!a.getElementById(n)){let e=a.createElement("script"),t=(e.id=n,e.src=o,e.async=!0,e.defer=!0,e.crossOrigin="anonymous",e.setAttribute("data-uid","20984"),e.setAttribute("data-pid","1933"),setTimeout(()=>{try{e.remove()}catch(e){}d.__lgEngageLoaded=!1},6e3));e.onload=()=>clearTimeout(t),e.onerror=()=>{clearTimeout(t),d.__lgEngageLoaded=!1},(a.head||a.body).appendChild(e)}}function r(){"requestIdleCallback"in d?d.requestIdleCallback(t,{timeout:3e3}):setTimeout(t,2e3)}})();
@@ -30,6 +32,25 @@
     </script>
 </head>
 <body class="antialiased bg-body text-body font-body">
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="images/cm-logo-v2.png?v=3" alt="Crafted Matrix">
+        </a>
+        <div class="nav-links">
+            <a href="services.html">Services</a>
+            <a href="ai_consulting.html">Consulting</a>
+            <a href="gallery.html">Work</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="contact.html" class="nav-cta" onclick="gtag('event','conversion',{event_category:'nav',event_label:'get_started'});fbq('track','InitiateCheckout');">Free Audit</a>
+        <button class="mobile-toggle" onclick="document.getElementById('mob-nav').classList.toggle('active')">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+    </nav>
     <div class="">
                 
       <section x-data="{ mobileNavOpen: false }" class="overflow-hidden bg-neutral-950">
@@ -39,55 +60,9 @@
             <div class="absolute -top-28 -left-28 w-[520px] h-[520px] rounded-full bg-cyan-500/15 blur-3xl"></div>
             <div class="absolute -bottom-32 -right-32 w-[620px] h-[620px] rounded-full bg-amber-500/15 blur-3xl"></div>
           </div>
-          <nav class="relative z-10 px-6 sm:px-10 lg:pr-32 lg:pl-20 py-6 lg:py-5 border-b border-white/10">
-            <div class="flex items-center justify-between">
-              <!-- Left: hamburger + logo -->
-              <div class="flex items-center justify-between w-full lg:w-auto">
-                <button type="button" x-on:click="mobileNavOpen = !mobileNavOpen" class="order-1 lg:order-none lg:pr-10 inline-flex items-center justify-center rounded-lg w-12 h-12 text-white hover:bg-white/10 focus:outline-none focus:ring-4 focus:ring-white/10 transition" aria-label="Open navigation menu" :aria-expanded="mobileNavOpen.toString()" aria-expanded="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="14" viewbox="0 0 34 14" fill="none" aria-hidden="true"><g clip-path="url(#clip0_cm_menu)"><rect width="34" height="3" rx="1.5" fill="currentColor"></rect><rect y="11" width="34" height="3" rx="1.5" fill="currentColor"></rect></g><defs><clippath id="clip0_cm_menu"><rect width="34" height="14" fill="white"></rect></clippath></defs></svg>
-                </button>
-                <a class="pr-4 lg:pr-0 inline-flex items-center" href="index.html" aria-label="Crafted Matrix home">
-                  <img class="h-10 w-auto logo" src="images/cm-logo-v2.png?v=3" alt="Crafted Matrix logo" loading="eager" decoding="async">
-                </a>
-              </div>
-              <!-- Desktop nav -->
-              <div class="hidden lg:flex items-center gap-2">
-                <a class="inline-flex justify-center items-center text-center h-14 px-6 font-semibold tracking-tight text-lg text-white/90 hover:text-white transition rounded-lg hover:bg-white/5" href="about.html">About</a><a class="inline-flex justify-center items-center text-center h-14 px-6 font-semibold tracking-tight text-lg text-white/90 hover:text-white transition rounded-lg hover:bg-white/5" href="services.html">Services</a>
-            <a href="ai_consulting.html">Consulting</a><a class="inline-flex justify-center items-center text-center h-14 px-6 font-semibold tracking-tight text-lg text-white/90 hover:text-white transition rounded-lg hover:bg-white/5" href="gallery.html">Portfolio</a><a class="inline-flex justify-center items-center text-center h-14 px-6 font-semibold tracking-tight text-lg text-white/90 hover:text-white transition rounded-lg hover:bg-white/5" href="blog.html">Blog</a><a class="inline-flex justify-center items-center text-center h-14 px-6 font-semibold tracking-tight text-lg text-white/90 hover:text-white transition rounded-lg hover:bg-white/5" href="contact.html">Contact</a>
-                <span class="w-px h-8 bg-white/10 mx-2"></span>
-                <a class="inline-flex justify-center items-center text-center h-14 px-6 font-semibold tracking-tight text-lg text-white/90 hover:text-white transition rounded-lg hover:bg-white/5" href="https://lqa.craftedmatrix.com" rel="nofollow">Login</a><a class="inline-flex justify-center items-center text-center h-14 px-6 font-extrabold tracking-tight text-lg text-neutral-950 bg-gradient-to-r from-cyan-300 via-emerald-300 to-amber-300 hover:brightness-110 transition rounded-lg" href="tel:+17037409726" aria-label="Call Crafted Matrix at 703-740-9726">Boost Your Business!</a>
-              </div>
-            </div>
-          </nav>
           <!-- Mobile drawer -->
           <div :class="{ 'block': mobileNavOpen, 'hidden': !mobileNavOpen }" class="fixed top-0 left-0 bottom-0 w-5/6 max-w-xs z-50 block" role="dialog" aria-modal="true" aria-label="Mobile navigation">
             <div x-on:click="mobileNavOpen = false" class="fixed inset-0 bg-black/60"></div>
-            <nav class="relative p-7 w-full h-full bg-neutral-950 overflow-y-auto border-r border-white/10">
-              <div class="flex flex-col justify-between h-full">
-                <!-- top row -->
-                <div>
-                  <div class="flex items-center justify-between mb-10">
-                    <a class="inline-flex items-center gap-3" href="index.html" aria-label="Crafted Matrix home">
-                      <img class="h-9 w-auto logo" src="images/cm-logo-v2.png?v=3" alt="Crafted Matrix logo" loading="lazy" decoding="async">
-                    </a>
-                    <button type="button" x-on:click="mobileNavOpen = false" class="inline-flex items-center justify-center w-11 h-11 rounded-lg text-white hover:bg-white/10 focus:outline-none focus:ring-4 focus:ring-white/10 transition" aria-label="Close navigation menu">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewbox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                      </svg>
-                    </button>
-                  </div>
-                  <!-- links -->
-                  <div class="flex flex-col gap-2">
-                    <a class="inline-flex justify-center items-center text-center w-full h-14 px-6 font-semibold tracking-tight text-lg text-white/90 hover:text-white transition rounded-lg hover:bg-white/5" href="faqs.html">FAQ's</a><a class="inline-flex justify-center items-center text-center w-full h-14 px-6 font-semibold tracking-tight text-lg text-white/90 hover:text-white transition rounded-lg hover:bg-white/5" href="about.html">About</a><a class="inline-flex justify-center items-center text-center w-full h-14 px-6 font-semibold tracking-tight text-lg text-white/90 hover:text-white transition rounded-lg hover:bg-white/5" href="services.html">Services</a>
-            <a href="ai_consulting.html">Consulting</a><a class="inline-flex justify-center items-center text-center w-full h-14 px-6 font-semibold tracking-tight text-lg text-white/90 hover:text-white transition rounded-lg hover:bg-white/5" href="gallery.html">Portfolio</a><a class="inline-flex justify-center items-center text-center w-full h-14 px-6 font-semibold tracking-tight text-lg text-white/90 hover:text-white transition rounded-lg hover:bg-white/5" href="testimonials.html">Testimonials</a><a class="inline-flex justify-center items-center text-center w-full h-14 px-6 font-semibold tracking-tight text-lg text-white/90 hover:text-white transition rounded-lg hover:bg-white/5" href="contact.html">Contact</a><a class="inline-flex justify-center items-center text-center w-full h-14 px-6 font-semibold tracking-tight text-lg text-white/90 hover:text-white transition rounded-lg hover:bg-white/5" href="blog.html" rel="noopener">Blog</a>
-                    <div class="w-full h-px bg-white/10 my-3"></div>
-                    <a class="inline-flex justify-center items-center text-center w-full h-14 px-6 font-semibold tracking-tight text-lg text-white/90 hover:text-white transition rounded-lg hover:bg-white/5" href="https://lqa.craftedmatrix.com" rel="nofollow">Login</a><a class="inline-flex justify-center items-center text-center w-full h-14 px-6 font-extrabold tracking-tight text-lg text-neutral-950 bg-gradient-to-r from-cyan-300 via-emerald-300 to-amber-300 rounded-lg hover:brightness-110 transition" href="" aria-label="Call Crafted Matrix at 703-740-9726">Signup</a>
-                  </div>
-                </div>
-                <!-- tiny trust line -->
-                <p class="mt-10 text-xs text-white/50 leading-relaxed text-center">Crafted Matrix builds AI websites, automation, and growth systems designed to convert.</p>
-              </div>
-            </nav>
           </div>
         </div>
       </section>
@@ -106,37 +81,6 @@
         <!-- MOBILE NAV (kept, just styled darker) -->
         <div :class="{'block': mobileNavOpen, 'hidden': !mobileNavOpen}" class="hidden fixed top-0 left-0 bottom-0 w-5/6 max-w-xs z-50">
           <div x-on:click="mobileNavOpen = !mobileNavOpen" class="fixed inset-0 bg-black/60"></div>
-      
-          <nav class="relative p-8 w-full h-full bg-[#0b0f16] border-r border-white/10 overflow-y-auto">
-            <div class="flex flex-col justify-between h-full">
-              <div>
-                <div class="flex items-center justify-between mb-12">
-                  <a class="pr-4" href="#">
-                    <img class="h-10" src="mirga-assets/images/logos/mirga-dark-logo3.svg?v=3" alt="Crafted Matrix static websites and performance optimization">
-                  </a>
-                  <button x-on:click="mobileNavOpen = !mobileNavOpen" class="rounded-xl border border-white/10 bg-white/5 p-2 hover:bg-white/10 transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
-                      <path d="M6 18L18 6M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                  </button>
-                </div>
-      
-                <div class="flex flex-col gap-3">
-                  <a class="inline-flex justify-center items-center text-center w-full h-12 px-5 font-semibold tracking-tight text-base text-white/80 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition" href="#">
-                    Login
-                  </a>
-                  <a class="inline-flex justify-center items-center text-center w-full h-12 px-5 font-semibold tracking-tight text-base text-black rounded-xl
-                            bg-gradient-to-r from-blue-300 to-indigo-300 hover:from-blue-200 hover:to-indigo-200 focus:ring-4 focus:ring-white/20 transition" href="#get-started">
-                    Sign up free
-                  </a>
-                </div>
-              </div>
-      
-              <div class="text-xs text-white/45 font-semibold tracking-[.18em] uppercase">
-                Performance • Security • Conversions
-              </div>
-            </div>
-          </nav>
         </div>
       
         <div class="relative container mx-auto overflow-hidden">

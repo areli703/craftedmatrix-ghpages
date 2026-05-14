@@ -7,12 +7,14 @@
     <meta name="description" content="Book a free consultation with Crafted Matrix. Let's discuss how we can help grow your business with custom web design, AI chatbots, and automation.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/navy-theme.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/tailwind/tailwind.min.css?v=3">
     <link rel="stylesheet" href="css/main.css?v=3">
     <link rel="stylesheet" href="css/animations.css?v=3">
     <link rel="stylesheet" href="css/animations-enhanced.css?v=3">
-    <link rel="icon" type="image/png" href="images/favicon-64x64.png?v=3">
+    <link rel="icon" type="image/png" href="images/favicon-64x64.png?v=3?v=3">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
     <style>
         :root { --cyan: #22d3ee; --emerald: #34d399; --amber: #fbbf24; }
@@ -39,25 +41,24 @@
 <body class="antialiased bg-neutral-950 text-white font-['Inter']">
     <div class="aurora-bg"></div>
     <div class="noise-overlay"></div>
-    
+
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-neutral-950/80 backdrop-blur-xl">
-        <div class="container mx-auto px-6">
-            <div class="flex h-20 items-center justify-between">
-                <a href="index.html" class="flex items-center gap-3">
-                    <img src="images/cm-logo-v2.png?v=3" alt="Crafted Matrix" class="h-10">
-                </a>
-                <div class="hidden lg:flex items-center gap-8">
-                    <a href="services.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Services</a>
-                    <a href="ai_consulting.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Consulting</a>
-                    <a href="gallery.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Portfolio</a>
-                    <a href="about.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">About</a>
-                    <a href="blog.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Insights</a>
-                    <a href="tel:+17037409726" class="px-5 py-2.5 rounded-full border border-white/20 text-sm font-semibold text-white hover:bg-white/5 transition-all">(703) 740-9726</a>
-                    <a href="contact.html" class="btn-glow px-6 py-2.5 rounded-full text-sm font-bold text-neutral-950">Free Audit</a>
-                </div>
-            </div>
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="images/cm-logo-v2.png?v=3" alt="Crafted Matrix">
+        </a>
+        <div class="nav-links">
+            <a href="services.html">Services</a>
+            <a href="ai_consulting.html">Consulting</a>
+            <a href="gallery.html">Work</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
         </div>
+        <a href="contact.html" class="nav-cta" onclick="gtag('event','conversion',{event_category:'nav',event_label:'get_started'});fbq('track','InitiateCheckout');">Free Audit</a>
+        <button class="mobile-toggle" onclick="document.getElementById('mob-nav').classList.toggle('active')">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
     </nav>
 
     <!-- Hero Section -->

@@ -6,10 +6,12 @@
     <title>AI Readiness Audit - Crafted Matrix</title>
     <meta name="description" content="Get a 30-minute video teardown of your website, SEO, and automation gaps. 3 guaranteed actionable improvements. $997 one-time.">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="css/navy-theme.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/tailwind/tailwind.min.css?v=3">
     <link rel="stylesheet" href="css/main.css?v=3">
-    <link rel="icon" type="image/png" href="images/favicon-64x64.png?v=3">
+    <link rel="icon" type="image/png" href="images/favicon-64x64.png?v=3?v=3">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
     <style>
         .gradient-text { background: linear-gradient(135deg, #22d3ee, #34d399, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -28,15 +30,24 @@
 </head>
 <body class="antialiased bg-neutral-950 text-white font-['DM_Sans']">
     <!-- Nav (minimal) -->
-    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-neutral-950/80 backdrop-blur-xl">
-        <div class="container mx-auto px-6">
-            <div class="flex h-16 items-center justify-between">
-                <a href="index.html" class="flex items-center gap-3">
-                    <img src="images/cm-logo-v2.png?v=3" alt="Crafted Matrix" class="h-8">
-                </a>
-                <a href="tel:+1703-740-9726" class="text-sm text-white/70 hover:text-white">(703) 740-9726</a>
-            </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="images/cm-logo-v2.png?v=3" alt="Crafted Matrix">
+        </a>
+        <div class="nav-links">
+            <a href="services.html">Services</a>
+            <a href="ai_consulting.html">Consulting</a>
+            <a href="gallery.html">Work</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
         </div>
+        <a href="contact.html" class="nav-cta" onclick="gtag('event','conversion',{event_category:'nav',event_label:'get_started'});fbq('track','InitiateCheckout');">Free Audit</a>
+        <button class="mobile-toggle" onclick="document.getElementById('mob-nav').classList.toggle('active')">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
     </nav>
 
     <!-- Hero -->

@@ -1,0 +1,133 @@
+.ebook,
+.imgbox {
+  text-align: center
+}
+.ebook {
+  height: 50%;
+  width: 75%
+}
+.herotext {
+  color: #0080ff;
+  text-shadow: #fff 1px 1px 0
+}
+.cta,
+.footer,
+.icon1,
+.lilicon,
+.lowcostpack,
+.mainbutton,
+.rev,
+.smalltextbox,
+.smalltxt {
+  color: #fff
+}
+.cta {
+  text-shadow: #000 1px 1px 0
+}
+.lowcostpack,
+.rev {
+  text-shadow: #000 1px 2px 0
+}
+.footer {
+  background-color: #0276ff
+}
+.lowcostpack {
+  font-size: 40px;
+  box-shadow: #000 0 0 0 0
+}
+.mainbutton {
+  background-color: #0051ff
+}
+.smalltextbox {
+  font-weight: 600;
+  text-decoration-line: underline;
+  background-color: #000
+}
+.herosmall,
+.herotext2 {
+  text-shadow: #1251bd 1px 2px 0;
+  color: #fff
+}
+.navtext {
+  text-shadow: #000 1px 2px 0
+}
+.logo {
+  height: 100px;
+  width: 300px
+}
+.footlogo {
+  width: 100px
+}
+.background {
+  background-color: #00fa9a
+}
+.icon {
+  width: 210px;
+  height: 148px
+}
+.bigtext,
+.inspiration {
+  font-size: 80px
+}
+.halfsize {
+  width: 50%
+}
+.imagegallery {
+  height: 540px;
+  width: 400px
+}
+.imagegallerybox {
+  margin-bottom: -40px;
+  max-width: 500px;
+  max-height: 650px
+}
+.tinylogo {
+  width: 50px;
+  height: 50px
+}
+.iconsize,
+.matrixicon {
+  height: 50%
+}
+.galleryimg {
+  position: inherit
+}
+.herobg {
+  background-color: #1a1a1a
+}
+.ctaoverlay {
+  filter: opacity(1)
+}
+.chatbotpic {
+  width: 112px;
+  height: 112px
+}
+.feat1 {
+  width: 384px;
+  height: auto
+}
+.feat2 {
+  width: 224px;
+  height: 225px
+}
+.feat3 {
+  width: 176px;
+  height: 176px
+}
+.feat4 {
+  width: 112px;
+  height: 112px
+}
+.feat5 {
+  width: 144px;
+  height: 144px
+}
+.bigfont {
+  font-size: 100px
+}
+@media (max-width:640px) {
+  .herotextmb {
+    font-size: 50px
+  }
+}
+

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog | Crafted Matrix - Insights on Web Design & AI</title>
+    <meta name="description" content="Expert insights on web design, AI automation, SEO strategies, and digital growth. Learn how to grow your business online.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tailwind/tailwind.min.css?v=3">
+    <link rel="stylesheet" href="css/main.css?v=3">
+    <link rel="stylesheet" href="css/animations.css?v=3">
+    <link rel="stylesheet" href="css/animations-enhanced.css?v=3">
+    <link rel="icon" type="image/png" href="images/favicon-64x64.png?v=3">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
+    <style>
+        :root { --cyan: #22d3ee; --emerald: #34d399; --amber: #fbbf24; }
+        .aurora-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+        .aurora-bg::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse 80% 50% at 20% 40%, rgba(34, 211, 238, 0.15), transparent), radial-gradient(ellipse 60% 40% at 80% 20%, rgba(52, 211, 153, 0.12), transparent), radial-gradient(ellipse 70% 60% at 40% 80%, rgba(251, 191, 36, 0.1), transparent); animation: aurora 20s ease-in-out infinite; }
+        @keyframes aurora { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 33% { transform: translate(2%, 2%) rotate(120deg); } 66% { transform: translate(-1%, 1%) rotate(240deg); } }
+        .noise-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+        .gradient-border { position: relative; background: rgba(255, 255, 255, 0.03); border-radius: 24px; }
+        .gradient-border::before { content: ''; position: absolute; inset: 0; border-radius: 24px; padding: 1px; background: linear-gradient(135deg, rgba(34, 211, 238, 0.5), rgba(52, 211, 153, 0.3), rgba(251, 191, 36, 0.5)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+        .btn-glow { position: relative; background: linear-gradient(135deg, #22d3ee, #34d399, #fbbf24); background-size: 200% 200%; animation: gradientShift 3s ease infinite; transition: all 0.3s ease; }
+        .btn-glow::before { content: ''; position: absolute; inset: -2px; border-radius: inherit; background: linear-gradient(135deg, #22d3ee, #34d399, #fbbf24); filter: blur(12px); opacity: 0; transition: opacity 0.3s ease; z-index: -1; }
+        .btn-glow:hover::before { opacity: 0.6; }
+        .btn-glow:hover { transform: translateY(-2px); box-shadow: 0 20px 40px rgba(34, 211, 238, 0.3); }
+        @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .text-gradient { background: linear-gradient(135deg, #22d3ee, #34d399, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .blog-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .blog-card:hover { transform: translateY(-8px); }
+        .blog-card:hover .blog-img { transform: scale(1.05); }
+        .blog-img { transition: transform 0.6s ease; }
+        .category-tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }
+        .tag-ai { background: rgba(34, 211, 238, 0.15); color: #22d3ee; }
+        .tag-seo { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
+        .tag-design { background: rgba(52, 211, 153, 0.15); color: #34d399; }
+        .tag-business { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
+    </style>
+</head>
+<body class="antialiased bg-neutral-950 text-white font-['Inter']">
+    <div class="aurora-bg"></div>
+    <div class="noise-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-neutral-950/80 backdrop-blur-xl">
+        <div class="container mx-auto px-6">
+            <div class="flex h-20 items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="images/cm-logo-v2.png?v=3" alt="Crafted Matrix" class="h-10">
+                </a>
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="services.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Services</a>
+                    <a href="ai_consulting.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Consulting</a>
+                    <a href="gallery.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Portfolio</a>
+                    <a href="about.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">About</a>
+                    <a href="blog.html" class="text-sm font-medium text-white hover:text-white transition-colors">Insights</a>
+                    <a href="tel:+17037409726" class="px-5 py-2.5 rounded-full border border-white/20 text-sm font-semibold text-white hover:bg-white/5 transition-all">(703) 740-9726</a>
+                    <a href="contact.html" class="btn-glow px-6 py-2.5 rounded-full text-sm font-bold text-neutral-950">Free Audit</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-16">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-cyan-300 text-sm font-semibold mb-6">Insights</span>
+                <h1 class="text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    Expert insights on <span class="text-gradient">digital growth</span>
+                </h1>
+                <p class="text-xl text-white/60 max-w-2xl mx-auto">
+                    Actionable strategies on web design, AI automation, SEO, and business growth.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="py-12">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <a href="how_ai_chatbots_turn_website_visitors_into_qualified_leads_247.html" class="block gradient-border overflow-hidden blog-card reveal">
+                    <div class="grid md:grid-cols-2">
+                        <div class="h-64 md:h-auto bg-gradient-to-br from-cyan-500/20 via-emerald-500/20 to-amber-500/20 relative overflow-hidden">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg class="w-24 h-24 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                            </div>
+                        </div>
+                        <div class="p-8 md:p-10 flex flex-col justify-center">
+                            <span class="category-tag tag-ai mb-4">AI & Automation</span>
+                            <h2 class="text-2xl md:text-3xl font-bold mb-4">Why Every Small Business Needs an AI Chatbot in 2026</h2>
+                            <p class="text-white/60 mb-6">Discover how AI chatbots are transforming customer service, reducing response times by 99%, and helping businesses capture leads 24/7 without human intervention.</p>
+                            <div class="flex items-center gap-4 text-sm text-white/50">
+                                <span>January 15, 2026</span>
+                                <span>•</span>
+                                <span>8 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Article 1 -->
+                <a href="local_seo_for_service_businesses_the_complete_2026_playbook_google_maps__rankings.html" class="gradient-border overflow-hidden blog-card reveal">
+                    <div class="h-48 bg-gradient-to-br from-amber-500/20 to-amber-600/10 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="category-tag tag-seo mb-3">SEO</span>
+                        <h3 class="text-xl font-bold mb-3">Local SEO Checklist 2026: Dominate Your Market</h3>
+                        <p class="text-white/60 text-sm mb-4">The complete 47-point checklist to rank #1 in local search results and attract customers in your area.</p>
+                        <div class="flex items-center gap-3 text-xs text-white/50">
+                            <span>Jan 10, 2026</span>
+                            <span>•</span>
+                            <span>6 min read</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Article 2 -->
+                <a href="why_most_websites_dont_convert__and_how_ai_fixes_the_problem_automatically.html" class="gradient-border overflow-hidden blog-card reveal" style="transition-delay: 100ms;">
+                    <div class="h-48 bg-gradient-to-br from-cyan-500/20 to-cyan-600/10 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="category-tag tag-design mb-3">Web Design</span>
+                        <h3 class="text-xl font-bold mb-3">How We Build Websites That Convert at 15%+</h3>
+                        <p class="text-white/60 text-sm mb-4">The psychology, design principles, and technical secrets behind our high-converting website builds.</p>
+                        <div class="flex items-center gap-3 text-xs text-white/50">
+                            <span>Jan 5, 2026</span>
+                            <span>•</span>
+                            <span>5 min read</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Article 3 -->
+                <a href="from_first_click_to_closed_deal_building_an_automated_customer_journey_that_scales.html" class="gradient-border overflow-hidden blog-card reveal" style="transition-delay: 200ms;">
+                    <div class="h-48 bg-gradient-to-br from-purple-500/20 to-purple-600/10 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="category-tag tag-business mb-3">Business</span>
+                        <h3 class="text-xl font-bold mb-3">How Automation Saved Our Clients 10+ Hours Weekly</h3>
+                        <p class="text-white/60 text-sm mb-4">Real case studies showing how automation workflows transformed operations for local businesses.</p>
+                        <div class="flex items-center gap-3 text-xs text-white/50">
+                            <span>Dec 28, 2025</span>
+                            <span>•</span>
+                            <span>7 min read</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Article 4 -->
+                <a href="2026_google_maps_playbook.html" class="gradient-border overflow-hidden blog-card reveal">
+                    <div class="h-48 bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="category-tag tag-seo mb-3">SEO</span>
+                        <h3 class="text-xl font-bold mb-3">Why Website Speed Matters More Than Ever</h3>
+                        <p class="text-white/60 text-sm mb-4">Google's Core Web Vitals explained and how to achieve sub-3-second load times.</p>
+                        <div class="flex items-center gap-3 text-xs text-white/50">
+                            <span>Dec 20, 2025</span>
+                            <span>•</span>
+                            <span>4 min read</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Article 5 -->
+                <a href="the_modern_growth_stack_how_ai_automation_and_design_compound_results.html" class="gradient-border overflow-hidden blog-card reveal" style="transition-delay: 100ms;">
+                    <div class="h-48 bg-gradient-to-br from-cyan-500/20 to-purple-500/10 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="category-tag tag-ai mb-3">AI</span>
+                        <h3 class="text-xl font-bold mb-3">Choosing the Right AI Tools for Your Business</h3>
+                        <p class="text-white/60 text-sm mb-4">A practical guide to selecting AI solutions that actually deliver ROI for small businesses.</p>
+                        <div class="flex items-center gap-3 text-xs text-white/50">
+                            <span>Dec 15, 2025</span>
+                            <span>•</span>
+                            <span>6 min read</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Article 6 -->
+                <a href="local_seo_for_service_businesses_the_complete_2026_playbook_google_maps__rankings.html" class="gradient-border overflow-hidden blog-card reveal" style="transition-delay: 200ms;">
+                    <div class="h-48 bg-gradient-to-br from-pink-500/20 to-amber-500/10 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="category-tag tag-design mb-3">Design</span>
+                        <h3 class="text-xl font-bold mb-3">Mobile-First Design: The 2026 Playbook</h3>
+                        <p class="text-white/60 text-sm mb-4">With 70%+ traffic coming from mobile devices, here's how to design for the small screen first.</p>
+                        <div class="flex items-center gap-3 text-xs text-white/50">
+                            <span>Dec 8, 2025</span>
+                            <span>•</span>
+                            <span>5 min read</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6">Ready to grow your business?</h2>
+                <p class="text-xl text-white/60 mb-8">Let's discuss how we can help you achieve your goals.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="contact.html" class="btn-glow px-10 py-4 rounded-full text-lg font-bold text-neutral-950">Free Audit</a>
+                    <a href="services.html" class="px-10 py-4 rounded-full border border-white/20 text-lg font-semibold text-white hover:bg-white/5 transition-all">View Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <img src="images/cm-logo-v2.png?v=3" alt="Crafted Matrix" class="h-10 mb-6">
+                    <p class="text-white/50 text-sm mb-6">Transforming businesses with AI-powered websites and automation systems.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Services</h4>
+                    <ul class="space-y-3 text-sm text-white/60">
+                        <li><a href="services.html" class="hover:text-white transition-colors">Web Design</a></li>
+                        <li><a href="ai_chatbots.html" class="hover:text-white transition-colors">AI Chatbots</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">SEO Services</a></li>
+                        <li><a href="automations.html" class="hover:text-white transition-colors">Automation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Company</h4>
+                    <ul class="space-y-3 text-sm text-white/60">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="gallery.html" class="hover:text-white transition-colors">Portfolio</a></li>
+                        <li><a href="testimonials.html" class="hover:text-white transition-colors">Reviews</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Contact</h4>
+                    <ul class="space-y-3 text-sm text-white/60">
+                        <li><a href="tel:+17037409726" class="hover:text-white transition-colors">(703) 740-9726</a></li>
+                        <li><a href="mailto:sales@craftedmatrix.com" class="hover:text-white transition-colors">sales@craftedmatrix.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/40 text-sm">© 2026 Crafted Matrix. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

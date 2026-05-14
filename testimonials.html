@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reviews | Crafted Matrix - Client Success Stories</title>
+    <meta name="description" content="Read reviews and success stories from businesses that trust Crafted Matrix for websites, AI chatbots, automation, and digital growth systems.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tailwind/tailwind.min.css?v=3">
+    <link rel="stylesheet" href="css/main.css?v=3">
+    <link rel="stylesheet" href="css/animations.css?v=3">
+    <link rel="stylesheet" href="css/animations-enhanced.css?v=3">
+    <link rel="icon" type="image/png" href="images/favicon-64x64.png?v=3">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
+    <style>
+        :root { --cyan: #22d3ee; --emerald: #34d399; --amber: #fbbf24; }
+        .aurora-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+        .aurora-bg::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse 80% 50% at 20% 40%, rgba(34, 211, 238, 0.15), transparent), radial-gradient(ellipse 60% 40% at 80% 20%, rgba(52, 211, 153, 0.12), transparent), radial-gradient(ellipse 70% 60% at 40% 80%, rgba(251, 191, 36, 0.1), transparent); animation: aurora 20s ease-in-out infinite; }
+        @keyframes aurora { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 33% { transform: translate(2%, 2%) rotate(120deg); } 66% { transform: translate(-1%, 1%) rotate(240deg); } }
+        .noise-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+        .gradient-border { position: relative; background: rgba(255, 255, 255, 0.03); border-radius: 24px; }
+        .gradient-border::before { content: ''; position: absolute; inset: 0; border-radius: 24px; padding: 1px; background: linear-gradient(135deg, rgba(34, 211, 238, 0.5), rgba(52, 211, 153, 0.3), rgba(251, 191, 36, 0.5)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+        .btn-glow { position: relative; background: linear-gradient(135deg, #22d3ee, #34d399, #fbbf24); background-size: 200% 200%; animation: gradientShift 3s ease infinite; transition: all 0.3s ease; }
+        .btn-glow::before { content: ''; position: absolute; inset: -2px; border-radius: inherit; background: linear-gradient(135deg, #22d3ee, #34d399, #fbbf24); filter: blur(12px); opacity: 0; transition: opacity 0.3s ease; z-index: -1; }
+        .btn-glow:hover::before { opacity: 0.6; }
+        .btn-glow:hover { transform: translateY(-2px); box-shadow: 0 20px 40px rgba(34, 211, 238, 0.3); }
+        @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .text-gradient { background: linear-gradient(135deg, #22d3ee, #34d399, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .mesh-grid { background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+        .review-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .review-card:hover { transform: translateY(-8px); }
+        .stars { letter-spacing: 0.18em; }
+    </style>
+</head>
+<body class="antialiased bg-neutral-950 text-white font-['Inter']">
+    <div class="aurora-bg"></div>
+    <div class="noise-overlay"></div>
+
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-neutral-950/80 backdrop-blur-xl">
+        <div class="container mx-auto px-6">
+            <div class="flex h-20 items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="images/cm-logo-v2.png?v=3" alt="Crafted Matrix" class="h-10">
+                </a>
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="services.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Services</a>
+                    <a href="gallery.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Portfolio</a>
+                    <a href="about.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">About</a>
+                    <a href="blog.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Insights</a>
+                    <a href="testimonials.html" class="text-sm font-medium text-white hover:text-white transition-colors">Reviews</a>
+                    <a href="tel:+17037409726" class="px-5 py-2.5 rounded-full border border-white/20 text-sm font-semibold text-white hover:bg-white/5 transition-all">(703) 740-9726</a>
+                    <a href="contact.html" class="btn-glow px-6 py-2.5 rounded-full text-sm font-bold text-neutral-950">Book My Free Audit</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-32 pb-20">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-amber-300 text-sm font-semibold mb-6">Client Reviews</span>
+                <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-6">
+                    Results people are <span class="text-gradient">happy to talk about</span>
+                </h1>
+                <p class="text-xl text-white/60 max-w-2xl mx-auto">
+                    Businesses trust Crafted Matrix to build websites, automation, and AI systems that actually move revenue, leads, and bookings.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 border-y border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="gradient-border p-6 text-center reveal">
+                    <div class="text-4xl font-bold text-gradient mb-2">4.9</div>
+                    <div class="text-sm text-white/60">Average Rating</div>
+                </div>
+                <div class="gradient-border p-6 text-center reveal" style="transition-delay: 100ms;">
+                    <div class="text-4xl font-bold text-gradient mb-2">150+</div>
+                    <div class="text-sm text-white/60">Projects Delivered</div>
+                </div>
+                <div class="gradient-border p-6 text-center reveal" style="transition-delay: 200ms;">
+                    <div class="text-4xl font-bold text-gradient mb-2">98%</div>
+                    <div class="text-sm text-white/60">Client Satisfaction</div>
+                </div>
+                <div class="gradient-border p-6 text-center reveal" style="transition-delay: 300ms;">
+                    <div class="text-4xl font-bold text-gradient mb-2">285%</div>
+                    <div class="text-sm text-white/60">Average Lead Lift</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto reveal">
+                <div class="text-center mb-10">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-cyan-300 text-sm font-semibold mb-6">Live Review Feed</span>
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-4">Verified feedback from <span class="text-gradient">real clients</span></h2>
+                    <p class="text-lg text-white/60">A live review widget is embedded below so visitors can see your public reputation in one place.</p>
+                </div>
+                <div class="gradient-border p-6 md:p-8 min-h-[280px]">
+                    <div id="c7951443-7828-453f-879c-33affeb87f11"></div>
+                    <script defer src="https://en.trustmate.io/widget/api/c7951443-7828-453f-879c-33affeb87f11/script"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 mesh-grid border-y border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-emerald-300 text-sm font-semibold mb-6">Success Stories</span>
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6">What clients say after we <span class="text-gradient">launch</span></h2>
+                <p class="text-lg text-white/60">A mix of lead growth, better conversion, smoother operations, and stronger positioning online.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div class="gradient-border p-8 review-card reveal">
+                    <div class="stars text-amber-400 mb-4">★★★★★</div>
+                    <p class="text-white/80 mb-6">"Crafted Matrix completely transformed our online presence. Our website now generates far more leads than before, and the AI chatbot handles a huge share of customer questions automatically."</p>
+                    <div>
+                        <p class="font-semibold">Sarah Mitchell</p>
+                        <p class="text-sm text-white/50">Owner, Reverly Kitchen & Bar</p>
+                    </div>
+                </div>
+                <div class="gradient-border p-8 review-card reveal" style="transition-delay: 100ms;">
+                    <div class="stars text-amber-400 mb-4">★★★★★</div>
+                    <p class="text-white/80 mb-6">"Best investment we've made. The team understood our business quickly and delivered a site that ranks better, converts better, and finally feels like us."</p>
+                    <div>
+                        <p class="font-semibold">Michael Torres</p>
+                        <p class="text-sm text-white/50">Owner, Liberty Services</p>
+                    </div>
+                </div>
+                <div class="gradient-border p-8 review-card reveal" style="transition-delay: 200ms;">
+                    <div class="stars text-amber-400 mb-4">★★★★★</div>
+                    <p class="text-white/80 mb-6">"They didn't just build a pretty website. They built a system that helps us capture inquiries faster, follow up better, and close more of the right jobs."</p>
+                    <div>
+                        <p class="font-semibold">James Carter</p>
+                        <p class="text-sm text-white/50">Owner, Next Door Contractors</p>
+                    </div>
+                </div>
+                <div class="gradient-border p-8 review-card reveal">
+                    <div class="stars text-amber-400 mb-4">★★★★★</div>
+                    <p class="text-white/80 mb-6">"The process was clear from start to finish. Fast communication, strong design instincts, and a final product that feels premium on desktop and mobile."</p>
+                    <div>
+                        <p class="font-semibold">Victoria Harris</p>
+                        <p class="text-sm text-white/50">Founder, Vic's Hair Secret</p>
+                    </div>
+                </div>
+                <div class="gradient-border p-8 review-card reveal" style="transition-delay: 100ms;">
+                    <div class="stars text-amber-400 mb-4">★★★★★</div>
+                    <p class="text-white/80 mb-6">"We needed something that looked modern but also made operations easier. The automation side has saved us time every single week since launch."</p>
+                    <div>
+                        <p class="font-semibold">Angela Brooks</p>
+                        <p class="text-sm text-white/50">Operations Lead, Contractors On Site</p>
+                    </div>
+                </div>
+                <div class="gradient-border p-8 review-card reveal" style="transition-delay: 200ms;">
+                    <div class="stars text-amber-400 mb-4">★★★★★</div>
+                    <p class="text-white/80 mb-6">"Our site finally loads fast, looks polished, and gives parents a much easier path to learn about us and get in touch. The difference is night and day."</p>
+                    <div>
+                        <p class="font-semibold">Lauren Fields</p>
+                        <p class="text-sm text-white/50">Director, Little Steps</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto grid lg:grid-cols-3 gap-6">
+                <div class="gradient-border p-8 reveal">
+                    <div class="text-sm text-cyan-300 font-semibold mb-3">Speed</div>
+                    <h3 class="text-2xl font-bold mb-3">Clear process</h3>
+                    <p class="text-white/60">Clients consistently mention fast communication, fewer surprises, and a smoother build experience than they expected.</p>
+                </div>
+                <div class="gradient-border p-8 reveal" style="transition-delay: 100ms;">
+                    <div class="text-sm text-emerald-300 font-semibold mb-3">Performance</div>
+                    <h3 class="text-2xl font-bold mb-3">Real outcomes</h3>
+                    <p class="text-white/60">The common thread across reviews is measurable improvement: more leads, stronger bookings, better rankings, and less manual work.</p>
+                </div>
+                <div class="gradient-border p-8 reveal" style="transition-delay: 200ms;">
+                    <div class="text-sm text-amber-300 font-semibold mb-3">Partnership</div>
+                    <h3 class="text-2xl font-bold mb-3">Ongoing support</h3>
+                    <p class="text-white/60">You are not left alone after launch. That long-term support shows up again and again in how people describe working with Crafted Matrix.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6">Ready to become the next <span class="text-gradient">success story</span>?</h2>
+                <p class="text-xl text-white/60 mb-8">Let’s build something that looks sharper, converts better, and works harder for your business.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="contact.html" class="btn-glow px-10 py-4 rounded-full text-lg font-bold text-neutral-950">Free Audit</a>
+                    <a href="gallery.html" class="px-10 py-4 rounded-full border border-white/20 text-lg font-semibold text-white hover:bg-white/5 transition-all">View Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <img src="images/cm-logo-v2.png?v=3" alt="Crafted Matrix" class="h-10 mb-6">
+                    <p class="text-white/50 text-sm mb-6">Transforming businesses with AI-powered websites and automation systems.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Services</h4>
+                    <ul class="space-y-3 text-sm text-white/60">
+                        <li><a href="services.html" class="hover:text-white transition-colors">Web Design</a></li>
+                        <li><a href="ai_chatbots.html" class="hover:text-white transition-colors">AI Chatbots</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">SEO Services</a></li>
+                        <li><a href="automations.html" class="hover:text-white transition-colors">Automation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Company</h4>
+                    <ul class="space-y-3 text-sm text-white/60">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="gallery.html" class="hover:text-white transition-colors">Portfolio</a></li>
+                        <li><a href="testimonials.html" class="hover:text-white transition-colors">Reviews</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Contact</h4>
+                    <ul class="space-y-3 text-sm text-white/60">
+                        <li><a href="tel:+17037409726" class="hover:text-white transition-colors">(703) 740-9726</a></li>
+                        <li><a href="mailto:sales@craftedmatrix.com" class="hover:text-white transition-colors">sales@craftedmatrix.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/40 text-sm">© 2026 Crafted Matrix. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

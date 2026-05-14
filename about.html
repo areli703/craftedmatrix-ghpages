@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Us | Crafted Matrix - AI-Powered Digital Agency</title>
+    <meta name="description" content="Crafted Matrix builds high-converting websites, AI chatbots, and automation systems that help businesses generate more leads and close more deals.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tailwind/tailwind.min.css?v=3">
+    <link rel="stylesheet" href="css/main.css?v=3">
+    <link rel="stylesheet" href="css/animations.css?v=3">
+    <link rel="stylesheet" href="css/animations-enhanced.css?v=3">
+    <link rel="icon" type="image/png" href="images/favicon-64x64.png?v=3">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
+    <style>
+        :root { --cyan: #22d3ee; --emerald: #34d399; --amber: #fbbf24; }
+        .aurora-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+        .aurora-bg::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse 80% 50% at 20% 40%, rgba(34, 211, 238, 0.15), transparent), radial-gradient(ellipse 60% 40% at 80% 20%, rgba(52, 211, 153, 0.12), transparent), radial-gradient(ellipse 70% 60% at 40% 80%, rgba(251, 191, 36, 0.1), transparent); animation: aurora 20s ease-in-out infinite; }
+        @keyframes aurora { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 33% { transform: translate(2%, 2%) rotate(120deg); } 66% { transform: translate(-1%, 1%) rotate(240deg); } }
+        .noise-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+        .gradient-border { position: relative; background: rgba(255, 255, 255, 0.03); border-radius: 24px; }
+        .gradient-border::before { content: ''; position: absolute; inset: 0; border-radius: 24px; padding: 1px; background: linear-gradient(135deg, rgba(34, 211, 238, 0.5), rgba(52, 211, 153, 0.3), rgba(251, 191, 36, 0.5)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+        .btn-glow { position: relative; background: linear-gradient(135deg, #22d3ee, #34d399, #fbbf24); background-size: 200% 200%; animation: gradientShift 3s ease infinite; transition: all 0.3s ease; }
+        .btn-glow::before { content: ''; position: absolute; inset: -2px; border-radius: inherit; background: linear-gradient(135deg, #22d3ee, #34d399, #fbbf24); filter: blur(12px); opacity: 0; transition: opacity 0.3s ease; z-index: -1; }
+        .btn-glow:hover::before { opacity: 0.6; }
+        .btn-glow:hover { transform: translateY(-2px); box-shadow: 0 20px 40px rgba(34, 211, 238, 0.3); }
+        @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .text-gradient { background: linear-gradient(135deg, #22d3ee, #34d399, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .mesh-grid { background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+        .stat-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .stat-card:hover { transform: translateY(-4px); }
+        .value-card { transition: all 0.4s ease; }
+        .value-card:hover { transform: translateY(-4px); }
+        .team-card { transition: all 0.4s ease; }
+        .team-card:hover { transform: translateY(-8px); }
+    </style>
+</head>
+<body class="antialiased bg-neutral-950 text-white font-['Inter']">
+    <div class="aurora-bg"></div>
+    <div class="noise-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-neutral-950/80 backdrop-blur-xl">
+        <div class="container mx-auto px-6">
+            <div class="flex h-20 items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="images/cm-logo-v2.png?v=3" alt="Crafted Matrix" class="h-10">
+                </a>
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="services.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Services</a>
+                    <a href="ai_consulting.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Consulting</a>
+                    <a href="gallery.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Portfolio</a>
+                    <a href="about.html" class="text-sm font-medium text-white hover:text-white transition-colors">About</a>
+                    <a href="blog.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Insights</a>
+                    <a href="tel:+17037409726" class="px-5 py-2.5 rounded-full border border-white/20 text-sm font-semibold text-white hover:bg-white/5 transition-all">(703) 740-9726</a>
+                    <a href="contact.html" class="btn-glow px-6 py-2.5 rounded-full text-sm font-bold text-neutral-950">Free Audit</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-cyan-300 text-sm font-semibold mb-6">About Us</span>
+                <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-6">
+                    We build <span class="text-gradient">digital success</span>
+                </h1>
+                <p class="text-xl text-white/60 max-w-2xl mx-auto">
+                    Crafted Matrix is a digital agency specializing in high-converting websites, AI automation, and growth strategies that deliver measurable results.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 border-y border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="gradient-border p-6 text-center stat-card reveal">
+                    <div class="text-4xl font-bold text-gradient mb-2">150+</div>
+                    <div class="text-sm text-white/60">Projects Delivered</div>
+                </div>
+                <div class="gradient-border p-6 text-center stat-card reveal" style="transition-delay: 100ms;">
+                    <div class="text-4xl font-bold text-gradient mb-2">$10M+</div>
+                    <div class="text-sm text-white/60">Revenue Generated</div>
+                </div>
+                <div class="gradient-border p-6 text-center stat-card reveal" style="transition-delay: 200ms;">
+                    <div class="text-4xl font-bold text-gradient mb-2">98%</div>
+                    <div class="text-sm text-white/60">Client Satisfaction</div>
+                </div>
+                <div class="gradient-border p-6 text-center stat-card reveal" style="transition-delay: 300ms;">
+                    <div class="text-4xl font-bold text-gradient mb-2">4.9★</div>
+                    <div class="text-sm text-white/60">Average Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-emerald-300 text-sm font-semibold mb-6">Our Story</span>
+                    <h2 class="text-4xl font-bold mb-6">From frustration to <span class="text-gradient">innovation</span></h2>
+                    <div class="space-y-4 text-white/70">
+                        <p>Crafted Matrix was born from a simple observation: most websites are expensive, slow, and don't actually help businesses grow. We set out to change that.</p>
+                        <p>Founded by a team of developers, designers, and growth marketers, we combine cutting-edge technology with proven marketing principles to create digital experiences that convert visitors into customers.</p>
+                        <p>Today, we've helped over 150 businesses across the US transform their online presence. Our clients see an average of 285% increase in qualified leads within the first 90 days.</p>
+                    </div>
+                </div>
+                <div class="relative reveal" style="transition-delay: 200ms;">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 via-emerald-500/20 to-amber-500/20 rounded-3xl blur-2xl"></div>
+                    <div class="gradient-border p-8 relative">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-4">
+                                <div class="h-32 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-cyan-600/10 flex items-center justify-center">
+                                    <svg class="w-12 h-12 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                </div>
+                                <div class="h-24 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 flex items-center justify-center">
+                                    <svg class="w-10 h-10 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                                </div>
+                            </div>
+                            <div class="space-y-4 pt-8">
+                                <div class="h-24 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 flex items-center justify-center">
+                                    <svg class="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                                </div>
+                                <div class="h-32 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-600/10 flex items-center justify-center">
+                                    <svg class="w-12 h-12 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-24 border-y border-white/5 mesh-grid">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-amber-300 text-sm font-semibold mb-6">Our Values</span>
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6">What drives <span class="text-gradient">everything we do</span></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="gradient-border p-8 value-card reveal">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-cyan-600/10 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Results First</h3>
+                    <p class="text-white/60">We measure success by your bottom line. Every decision we make is driven by data and focused on generating measurable ROI.</p>
+                </div>
+                <div class="gradient-border p-8 value-card reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Custom Solutions</h3>
+                    <p class="text-white/60">No templates. No shortcuts. Every project is built from scratch to match your unique brand, goals, and customer needs.</p>
+                </div>
+                <div class="gradient-border p-8 value-card reveal" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">True Partnership</h3>
+                    <p class="text-white/60">We become an extension of your team. Your success is our success, and we're committed to supporting your growth long after launch.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-purple-300 text-sm font-semibold mb-6">Our Team</span>
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6">Meet the <span class="text-gradient">experts</span></h2>
+                <p class="text-lg text-white/60">A small but mighty team of developers, designers, and growth strategists.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="gradient-border p-6 text-center team-card reveal">
+                    <div class="w-24 h-24 rounded-full bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-3xl font-bold text-cyan-400">SC</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">Stephen</h3>
+                    <p class="text-cyan-400 text-sm mb-3">Founder & Lead Developer</p>
+                    <p class="text-white/60 text-sm">Full-stack developer with 15+ years experience building scalable web applications and AI systems.</p>
+                </div>
+                <div class="gradient-border p-6 text-center team-card reveal" style="transition-delay: 100ms;">
+                    <div class="w-24 h-24 rounded-full bg-gradient-to-br from-emerald-500/30 to-emerald-600/20 mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-3xl font-bold text-emerald-400">ED</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">Erika</h3>
+                    <p class="text-emerald-400 text-sm mb-3">Design Director</p>
+                    <p class="text-white/60 text-sm">Award-winning designer passionate about creating beautiful, conversion-focused user experiences.</p>
+                </div>
+                <div class="gradient-border p-6 text-center team-card reveal" style="transition-delay: 200ms;">
+                    <div class="w-24 h-24 rounded-full bg-gradient-to-br from-amber-500/30 to-amber-600/20 mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-3xl font-bold text-amber-400">MK</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">Marcus</h3>
+                    <p class="text-amber-400 text-sm mb-3">Growth Strategist</p>
+                    <p class="text-white/60 text-sm">SEO and marketing expert who has driven millions in revenue for clients across industries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Projects Section -->
+    <section class="py-24 border-y border-white/5 mesh-grid">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-cyan-300 text-sm font-semibold mb-6">Partner Ventures</span>
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6">Products we've <span class="text-gradient">built</span></h2>
+                <p class="text-lg text-white/60">Beyond client work, we build and scale our own SaaS products.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="gradient-border p-8 reveal">
+                    <div class="flex items-center gap-4 mb-6">
+                            <img src="images/nida-small-logo.png?v=3" alt="NIDA OS" class="w-16 h-16 object-contain rounded-xl">
+                        <div>
+                            <h3 class="text-xl font-bold">NIDA OS</h3>
+                            <a href="https://www.nida-os.com" target="_blank" class="text-white/50 text-sm hover:text-cyan-400 transition-colors">nida-os.com →</a>
+                        </div>
+                    </div>
+                    <p class="text-white/60 mb-6">An all-in-one SaaS platform for service businesses. Features advanced reporting, real-time tracking, and enterprise-grade security.</p>
+                    <div class="grid grid-cols-2 gap-4 pt-6 border-t border-white/10">
+                        <div><div class="text-2xl font-bold text-cyan-400">$2M+</div><div class="text-sm text-white/50">Annual Revenue</div></div>
+                        <div><div class="text-2xl font-bold text-cyan-400">500+</div><div class="text-sm text-white/50">Active Users</div></div>
+                    </div>
+                </div>
+                <div class="gradient-border p-8 reveal" style="transition-delay: 100ms;">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 flex items-center justify-center overflow-hidden">
+                                <img src="images/cos-icon.png?v=3" alt="Contractors On Site" class="w-12 h-12 object-contain">
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Contractors On Site</h3>
+                            <a href="https://contractorsonsite.com" target="_blank" class="text-white/50 text-sm hover:text-emerald-400 transition-colors">contractorsonsite.com →</a>
+                        </div>
+                    </div>
+                    <p class="text-white/60 mb-6">A marketplace platform connecting skilled contractors with property managers and homeowners. Advanced matching algorithm, booking system, and verified reviews.</p>
+                    <div class="grid grid-cols-2 gap-4 pt-6 border-t border-white/10">
+                        <div><div class="text-2xl font-bold text-emerald-400">1,200+</div><div class="text-sm text-white/50">Contractors</div></div>
+                        <div><div class="text-2xl font-bold text-emerald-400">15K+</div><div class="text-sm text-white/50">Projects Completed</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/5 to-transparent"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6">Let's build something great together</h2>
+                <p class="text-xl text-white/60 mb-8">Ready to transform your digital presence? Let's discuss your project.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="contact.html" class="btn-glow px-10 py-4 rounded-full text-lg font-bold text-neutral-950">Start a Project</a>
+                    <a href="services.html" class="px-10 py-4 rounded-full border border-white/20 text-lg font-semibold text-white hover:bg-white/5 transition-all">View Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <img src="images/cm-logo-v2.png?v=3" alt="Crafted Matrix" class="h-10 mb-6">
+                    <p class="text-white/50 text-sm mb-6">Transforming businesses with AI-powered websites and automation systems.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Services</h4>
+                    <ul class="space-y-3 text-sm text-white/60">
+                        <li><a href="services.html" class="hover:text-white transition-colors">Web Design</a></li>
+                        <li><a href="ai_chatbots.html" class="hover:text-white transition-colors">AI Chatbots</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">SEO Services</a></li>
+                        <li><a href="automations.html" class="hover:text-white transition-colors">Automation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Company</h4>
+                    <ul class="space-y-3 text-sm text-white/60">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="gallery.html" class="hover:text-white transition-colors">Portfolio</a></li>
+                        <li><a href="testimonials.html" class="hover:text-white transition-colors">Reviews</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Contact</h4>
+                    <ul class="space-y-3 text-sm text-white/60">
+                        <li><a href="tel:+17037409726" class="hover:text-white transition-colors">(703) 740-9726</a></li>
+                        <li><a href="mailto:sales@craftedmatrix.com" class="hover:text-white transition-colors">sales@craftedmatrix.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/40 text-sm">© 2026 Crafted Matrix. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

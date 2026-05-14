@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Page title</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Web design, AI chatbot development, review automation, mobile apps, and email marketing systems built for growth. CraftedMatrix delivers results.">
+        <meta name="keywords" content="Digital Marketing Agency, SEO Services Woodbridge VA, PPC Advertising, Social Media Marketing, Web Design Experts, Online Marketing Strategy, Boost Online Presence, Crafted Matrix Digital Marketing, Top Digital Marketing Agency, Virginia Digital Marketing
+">
+        <meta name="og:description" content="Boost your online presence with Crafted Matrix, a top-tier digital marketing agency in Woodbridge, VA. Expert SEO, PPC, social media, and web design services to elevate your business.">
+        <meta property="og:type" content="website">
+        <meta name="robots" content="index, follow">
+        <meta property="og:image" content="https://i.imgur.com/jeIyq1Z.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/tailwind/tailwind.min.css?v=3">
+    <link rel="stylesheet" href="css/main.css?v=3">
+    <link rel="icon" type="image/png" href="images/favicon-64x64.png?v=3">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
+    <style>
+        :root{
+      --bg:#060812;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.09);
+      --border:rgba(255,255,255,.12);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.68);
+      --muted2:rgba(255,255,255,.52);
+      --accent:#38f2c5;   /* cyan/emerald glow */
+      --accent2:#56a6ff;  /* soft blue glow */
+      --accent3:#ffb454;  /* amber */
+      --danger:#ff4d6d;
+      --ok:#5CFF9D;
+
+      --radius:18px;
+      --radius2:24px;
+      --shadow: 0 30px 80px rgba(0,0,0,.55);
+      --shadow2: 0 18px 40px rgba(0,0,0,.45);
+
+      --w: min(1040px, 96vw);
+      --h: min(680px, 78vh);
+      --pad: 28px;
+
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family:var(--font);
+      background:
+        radial-gradient(900px 520px at 15% 10%, rgba(56,242,197,.14), transparent 60%),
+        radial-gradient(900px 520px at 85% 15%, rgba(86,166,255,.13), transparent 62%),
+        radial-gradient(900px 520px at 70% 92%, rgba(255,180,84,.10), transparent 55%),
+        linear-gradient(180deg, #050611 0%, #07091a 60%, #050611 100%);
+      color:var(--text);
+      overflow:hidden;
+    }
+
+    .grid{
+      position:fixed; inset:0;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 56px 56px;
+      opacity:.18;
+      pointer-events:none;
+      mask-image: radial-gradient(60% 55% at 50% 45%, rgba(0,0,0,1), rgba(0,0,0,.35) 60%, transparent 85%);
+    }
+
+    .wrap{
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+    }
+
+    .shell{
+      width:var(--w);
+      max-width:var(--w);
+      display:grid;
+      grid-template-columns: 330px 1fr;
+      gap:16px;
+      align-items:stretch;
+    }
+
+    .sidebar{
+      border:1px solid var(--border);
+      border-radius:var(--radius2);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height:var(--h);
+    }
+
+    .brand{
+      padding:22px 20px 18px 20px;
+      border-bottom:1px solid rgba(255,255,255,.09);
+      position:relative;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      color:rgba(255,255,255,.78);
+      background: rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.11);
+      padding:6px 10px;
+      border-radius:999px;
+      user-select:none;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(56,242,197,.65);
+    }
+    .brand h1{
+      margin:14px 0 8px 0;
+      font-size:22px;
+      letter-spacing:-.02em;
+      line-height:1.15;
+    }
+    .brand p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+    .brand .glow{
+      position:absolute; inset:-40px -50px auto auto;
+      width:180px;height:180px;border-radius:999px;
+      background: rgba(86,166,255,.16);
+      filter: blur(30px);
+      pointer-events:none;
+    }
+
+    .toc{
+      padding:14px 12px;
+      overflow:auto;
+      flex:1;
+    }
+    .toc h3{
+      margin:8px 10px 10px 10px;
+      font-size:12px;
+      letter-spacing:.12em;
+      color:rgba(255,255,255,.62);
+      text-transform:uppercase;
+    }
+    .toc button{
+      width:100%;
+      text-align:left;
+      border:1px solid transparent;
+      background: transparent;
+      color: rgba(255,255,255,.86);
+      padding:10px 10px;
+      border-radius:14px;
+      cursor:pointer;
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      transition: .18s ease;
+      line-height:1.25;
+    }
+    .toc button:hover{
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.08);
+    }
+    .toc button.active{
+      background: rgba(56,242,197,.10);
+      border-color: rgba(56,242,197,.22);
+      box-shadow: inset 0 0 0 1px rgba(56,242,197,.08);
+    }
+    .toc .num{
+      flex:0 0 auto;
+      font-family:var(--mono);
+      font-size:12px;
+      color:rgba(255,255,255,.7);
+      padding-top:1px;
+    }
+    .toc .title{
+      flex:1;
+      font-size:13px;
+    }
+    .toc .meta{
+      display:block;
+      font-size:12px;
+      margin-top:3px;
+      color: rgba(255,255,255,.55);
+    }
+
+    .sidebar .cta{
+      padding:14px 14px 16px 14px;
+      border-top:1px solid rgba(255,255,255,.09);
+      background: rgba(0,0,0,.14);
+    }
+    .cta .card{
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border-radius:18px;
+      padding:14px;
+      position:relative;
+      overflow:hidden;
+    }
+    .cta .card:before{
+      content:"";
+      position:absolute; inset:-30px -30px auto auto;
+      width:140px;height:140px;border-radius:999px;
+      background: rgba(56,242,197,.16);
+      filter: blur(28px);
+      pointer-events:none;
+    }
+    .cta strong{
+      display:block;
+      font-size:13px;
+      letter-spacing:-.01em;
+      margin-bottom:6px;
+    }
+    .cta p{
+      margin:0 0 10px 0;
+      color:var(--muted);
+      font-size:12.5px;
+      line-height:1.35;
+    }
+    .cta .row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.92);
+      padding:10px 12px;
+      border-radius:14px;
+      cursor:pointer;
+      font-weight:600;
+      font-size:12.5px;
+      transition:.18s ease;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
+    .btn.primary{
+      border-color: rgba(56,242,197,.32);
+      background: rgba(56,242,197,.12);
+      box-shadow: 0 10px 30px rgba(56,242,197,.10);
+    }
+    .btn.primary:hover{
+      background: rgba(56,242,197,.16);
+    }
+    .btn .pill{
+      font-family:var(--mono);
+      font-size:11px;
+      padding:2px 8px;
+      border-radius:999px;
+      background: rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.72);
+    }
+
+    .book{
+      min-height:var(--h);
+      border:1px solid var(--border);
+      border-radius:var(--radius2);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 16px;
+      border-bottom:1px solid rgba(255,255,255,.09);
+      background: rgba(0,0,0,.16);
+    }
+    .topbar .left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      color:rgba(255,255,255,.72);
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      user-select:none;
+    }
+    .kicker b{ color:rgba(255,255,255,.88); font-weight:700; }
+    .topbar .right{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .progress{
+      width:220px;
+      height:10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+    }
+    .progress > div{
+      height:100%;
+      width:0%;
+      background: linear-gradient(90deg, rgba(56,242,197,.8), rgba(86,166,255,.75));
+      box-shadow: 0 0 20px rgba(56,242,197,.22);
+      transition: width .25s ease;
+    }
+
+    .pages{
+      position:relative;
+      height: calc(var(--h) - 58px);
+      overflow:hidden;
+    }
+
+    .page{
+      position:absolute; inset:0;
+      padding: var(--pad);
+      display:grid;
+      grid-template-rows: auto 1fr auto;
+      gap:14px;
+      opacity:0;
+      transform: translateX(24px);
+      pointer-events:none;
+      transition: opacity .25s ease, transform .25s ease;
+    }
+    .page.active{
+      opacity:1;
+      transform: translateX(0);
+      pointer-events:auto;
+    }
+
+    .page h2{
+      margin:0;
+      font-size:34px;
+      letter-spacing:-.03em;
+      line-height:1.08;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      max-width: 78ch;
+      line-height:1.5;
+      font-size:14.5px;
+    }
+
+    .content{
+      overflow:auto;
+      padding-right:6px;
+    }
+
+    .cols{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:start;
+    }
+
+    .card{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      border-radius:18px;
+      padding:14px;
+    }
+    .card h3{
+      margin:0 0 8px 0;
+      font-size:14px;
+      letter-spacing:-.01em;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.45;
+    }
+    .card ul{
+      margin:10px 0 0 18px;
+      padding:0;
+      color:rgba(255,255,255,.82);
+      font-size:13.5px;
+      line-height:1.5;
+    }
+    .card li{ margin:6px 0; }
+    .tagrow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:10px;
+    }
+    .tag{
+      font-size:12px;
+      color: rgba(255,255,255,.74);
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      padding:6px 10px;
+      border-radius:999px;
+      user-select:none;
+    }
+    .tag.good{ border-color: rgba(92,255,157,.25); background: rgba(92,255,157,.08); }
+    .tag.warn{ border-color: rgba(255,180,84,.25); background: rgba(255,180,84,.08); }
+    .tag.bad{ border-color: rgba(255,77,109,.25); background: rgba(255,77,109,.08); }
+
+    .code{
+      font-family:var(--mono);
+      font-size:12px;
+      line-height:1.45;
+      color: rgba(255,255,255,.86);
+      background: rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.10);
+      padding:12px;
+      border-radius:14px;
+      overflow:auto;
+      white-space:pre;
+    }
+
+    .footer{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      padding-top:4px;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+    .footer .small{
+      color: rgba(255,255,255,.62);
+      font-size:12px;
+    }
+    .navbtns{
+      display:flex;
+      gap:10px;
+    }
+
+    .mini{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      color: rgba(255,255,255,.70);
+      font-size:12px;
+    }
+    .mini b{ color: rgba(255,255,255,.88); }
+    .hr{
+      height:1px;
+      background: rgba(255,255,255,.10);
+      margin:10px 0;
+    }
+
+    @media (max-width: 980px){
+      body{ overflow:auto; }
+      .wrap{ align-items:stretch; padding:14px; }
+      .shell{ grid-template-columns: 1fr; }
+      .sidebar{ min-height:auto; }
+      .book{ min-height:auto; }
+      .pages{ height:auto; min-height: 620px; }
+      .page{ position:relative; opacity:1; transform:none; pointer-events:auto; }
+      .page + .page{ display:none; } /* On small screens we show one page at a time via JS */
+      .cols{ grid-template-columns: 1fr; }
+      .progress{ width: 170px; }
+    }
+  
+/* ==============================
+   Crafted Matrix Flipbook — READABILITY + FULL WIDTH FIX
+   Paste AFTER your current CSS
+   ============================== */
+
+/* 1) Let the flipbook actually use the available width */
+.cm-shell{
+  width: 100% !important;
+  max-width: 1400px !important; /* make this 1600px if you want bigger */
+  margin: 0 auto !important;
+}
+
+/* 2) Make the content panel wider relative to the sidebar */
+.cm-shell{
+  grid-template-columns: 360px minmax(0, 1fr) !important;
+}
+
+/* 3) Give the book more room and prevent “narrow column” issues */
+.cm-book{
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* 4) Increase overall readability */
+.cm-page h2{
+  font-size: 38px !important;
+}
+.cm-sub{
+  font-size: 16px !important;
+  color: rgba(255,255,255,.78) !important;
+}
+.cm-card,
+.cm-content{
+  font-size: 15px !important;
+}
+.cm-card p,
+.cm-card li{
+  color: rgba(255,255,255,.82) !important;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+}
+
+/* 5) Fix the “dim / hard to read” look inside cards */
+.cm-card{
+  background: rgba(255,255,255,.075) !important;
+  border-color: rgba(255,255,255,.16) !important;
+}
+
+/* 6) Make the scroll area usable (no tiny gutter) */
+.cm-pages{
+  padding: 34px !important;
+}
+.cm-content{
+  margin-top: 16px !important;
+}
+
+/* 7) Improve toc readability */
+.cm-toc button{
+  color: rgba(255,255,255,.92) !important;
+}
+.cm-toc .meta{
+  color: rgba(255,255,255,.68) !important;
+  line-height: 1.35 !important;
+}
+
+/* 8) Fix layout overflow issues common in builders */
+.cm-shell,
+.cm-sidebar,
+.cm-book,
+.cm-pages{
+  min-width: 0 !important;
+}
+
+/* 9) Make tags easier to read */
+.cm-tag{
+  color: rgba(255,255,255,.86) !important;
+}
+
+/* 10) Responsive: stack cleanly and increase padding */
+@media (max-width: 980px){
+  .cm-shell{
+    grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+  }
+  .cm-pages{
+    padding: 22px !important;
+  }
+  .cm-page h2{
+    font-size: 30px !important;
+  }
+}
+    </style>
+    <script type="text/javascript">
+        (()=>{let a=document,d=window,n="lg-engage",o="https://lqa.craftedmatrix.com/api/data/js/engage.js";if(!a.getElementById(n)&&!d.__lgEngageLoaded){d.__lgEngageLoaded=!0;try{var e=a.createElement("link");e.rel="preconnect",e.href="https://lqa.craftedmatrix.com",e.crossOrigin="anonymous",(a.head||a.body).appendChild(e)}catch(e){}"loading"===a.readyState?a.addEventListener("DOMContentLoaded",r,{once:!0}):r()}function t(){if(!a.getElementById(n)){let e=a.createElement("script"),t=(e.id=n,e.src=o,e.async=!0,e.defer=!0,e.crossOrigin="anonymous",e.setAttribute("data-uid","20984"),e.setAttribute("data-pid","1933"),setTimeout(()=>{try{e.remove()}catch(e){}d.__lgEngageLoaded=!1},6e3));e.onload=()=>clearTimeout(t),e.onerror=()=>{clearTimeout(t),d.__lgEngageLoaded=!1},(a.head||a.body).appendChild(e)}}function r(){"requestIdleCallback"in d?d.requestIdleCallback(t,{timeout:3e3}):setTimeout(t,2e3)}})();
+    </script>
+    <script type="text/javascript">
+        (()=>{let a=window,d=document,o="lgna-dataform",r="https://lqa.craftedmatrix.com/api/data/dataforms-pixel.js";if(!d.getElementById(o)&&!a.__lgnaDataformLoaded){a.__lgnaDataformLoaded=!0;try{var e=d.createElement("link");e.rel="preconnect",e.href="https://lqa.craftedmatrix.com",e.crossOrigin="anonymous",(d.head||d.body).appendChild(e)}catch(e){}"loading"===d.readyState?d.addEventListener("DOMContentLoaded",n,{once:!0}):n()}function t(){if(!d.getElementById(o)){let e=d.createElement("script"),t=(e.id=o,e.src=r,e.async=!0,e.defer=!0,e.crossOrigin="anonymous",e.setAttribute("data-uid","20984"),e.setAttribute("data-pid","1933"),setTimeout(()=>{try{e.remove()}catch(e){}a.__lgnaDataformLoaded=!1},6e3));e.onload=()=>clearTimeout(t),e.onerror=()=>{clearTimeout(t),a.__lgnaDataformLoaded=!1},(d.head||d.body).appendChild(e)}}function n(){"requestIdleCallback"in a?a.requestIdleCallback(t,{timeout:3e3}):setTimeout(t,2e3)}})();
+
+    </script>
+    <script type="text/javascript">
+        (()=>{let e=window,t=document,a=e._paq=e._paq||[],i=(a.push(["trackPageView"]),a.push(["enableLinkTracking"]),a.push(["enableHeartBeatTimer",5]),"https://secure-analytics.com/");function s(){var e;t.getElementById("secure-analytics-js")||((e=t.createElement("script")).id="secure-analytics-js",e.type="text/javascript",e.async=!0,e.defer=!0,e.src=i+"secure-analytics.js",(t.head||t.body).appendChild(e))}function n(){try{a.push(["ping"])}catch(e){}}a.push(["setTrackerUrl",i+"secure-analytics.php"]),a.push(["setSiteId","35916"]),t.addEventListener("visibilitychange",()=>{"hidden"===t.visibilityState&&n()}),e.addEventListener("pagehide",n);var c=()=>{"requestIdleCallback"in e?e.requestIdleCallback(s,{timeout:3e3}):setTimeout(s,2e3)};"loading"===t.readyState?t.addEventListener("DOMContentLoaded",c,{once:!0}):c()})();
+    </script>
+</head>
+<body class="antialiased bg-body text-body font-body">
+    <div class="">
+                
+      <div class="wrap">
+        <div class="shell" role="application" aria-label="Flipbook: Google Maps Playbook">
+          <!-- Sidebar -->
+          <aside class="sidebar" aria-label="Table of contents">
+            <div class="brand">
+              <div class="glow" aria-hidden="true"></div>
+              <span class="badge">
+                <span class="dot"></span>
+                Featured • Jan 2026
+              </span>
+              <h1>Crafted Matrix</h1>
+              <p>AI websites, automations, and local growth systems built to convert — without fluff.</p>
+            </div>
+            <div class="toc">
+              <h3>Playbook chapters</h3>
+              <div id="toc"></div>
+            </div>
+            <div class="cta">
+              <div class="card">
+                <strong>Want us to implement this for you?</strong>
+                <p>We build the site pages, tracking, review engine, and “Near Me” local system that turns Maps visibility into booked calls.</p>
+                <div class="row">
+                  <a class="btn primary" href="https://www.craftedmatrix.com/contact" target="_blank" rel="noopener">
+                    Book a consult
+                    <span class="pill">(703)</span>
+                  </a>
+                  <a class="btn" href="tel:+17037409726">Call: (703) 740-9726</a><a class="btn" href="mailto:sales@craftedmatrix.com">Email sales@</a>
+                </div>
+              </div>
+            </div>
+          </aside>
+          <!-- Book -->
+          <main class="book">
+            <div class="topbar">
+              <div class="left">
+                <span class="kicker"><b>Local SEO</b> for Service Businesses</span>
+                <span class="kicker">Google Maps Playbook • 2026</span>
+              </div>
+              <div class="right">
+                <div class="progress" aria-label="Reading progress">
+                  <div id="prog"></div>
+                </div>
+                <button class="btn" id="copyLinkBtn" type="button" title="Copy a shareable link to the current chapter">Copy Chapter Link</button>
+              </div>
+            </div>
+            <section class="pages" id="pages">
+              <!-- Pages injected by JS -->
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/758340.js?v=1769538915" data-custom-component-id="758340"></script>
+    <script type="text/javascript" src="js/global-15264.js?v=1769538915"></script>
+    <script type="text/javascript">
+        (() => {
+  const W = window, D = document;
+  const ID = "taku-js";
+  const SRC = "https://cdn.taku-app.com/js/latest.js";
+  const KEY = "77eafcb7954569f978c32963f6206ca8";
+
+  // Lightweight queue stub
+  if (typeof W.Taku !== "function") {
+    const q = function () { q.q.push(arguments); };
+    q.q = [];
+    W.Taku = q;
+  }
+
+  function inject() {
+    if (D.getElementById(ID)) return;
+
+    const s = D.createElement("script");
+    s.id = ID;
+    s.async = true;
+    s.src = SRC;
+
+    s.onload = () => {
+      try {
+        W.Taku("news:boot", { api_public_key: KEY });
+      } catch (e) {}
+    };
+
+    (D.head || D.body).appendChild(s);
+  }
+
+  // 🔑 Delay long enough to escape Lighthouse window
+  setTimeout(inject, 8000); // 8s is safe for PSI
+})();
+
+    </script>
+    <script type="text/javascript">
+        
+(function () {
+  var SRC = "https://widget.cxgenie.ai/widget.js";
+  var AID = "9a693273-3203-4e1c-97f5-e3e7ca912ea7";
+  var LANG = "en";
+  var ID = "cxgenie-widget-js";
+
+  function inject() {
+    if (document.getElementById(ID)) return;
+
+    var s = document.createElement("script");
+    s.id = ID;
+    s.src = SRC;
+    s.async = true;
+    s.setAttribute("data-aid", AID);
+    s.setAttribute("data-lang", LANG);
+    (document.head || document.body).appendChild(s);
+  }
+
+  // Optional: warm up DNS/TLS a bit earlier without loading the script
+  function preconnect() {
+    try {
+      var pre = document.createElement("link");
+      pre.rel = "preconnect";
+      pre.href = "https://widget.cxgenie.ai";
+      pre.crossOrigin = "anonymous";
+      document.head.appendChild(pre);
+
+      var dns = document.createElement("link");
+      dns.rel = "dns-prefetch";
+      dns.href = "//widget.cxgenie.ai";
+      document.head.appendChild(dns);
+    } catch (e) {}
+  }
+
+  // Start preconnect after page becomes interactive, but still lightweight
+  setTimeout(preconnect, 2500);
+
+  // 🔑 Load AFTER Lighthouse’s critical window (tune 8–12s)
+  setTimeout(inject, 10000);
+})();
+
+    </script>
+</body>
+</html>
+

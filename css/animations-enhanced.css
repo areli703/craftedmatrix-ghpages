@@ -1,0 +1,643 @@
+/* ============================================
+   CRAFTED MATRIX - ENHANCED ANIMATIONS & EFFECTS
+   With Google Stitch Design Principles
+   ============================================ */
+
+/* --- CSS Custom Properties --- */
+:root {
+  /* Brand Colors */
+  --cm-cyan: #22d3ee;
+  --cm-emerald: #34d399;
+  --cm-amber: #fbbf24;
+  --cm-gradient: linear-gradient(135deg, var(--cm-cyan), var(--cm-emerald), var(--cm-amber));
+  
+  /* Backgrounds */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #171717;
+  --bg-tertiary: #262626;
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(255, 255, 255, 0.15);
+  --glass-blur: blur(20px);
+  
+  /* Shadows */
+  --shadow-glow-cyan: 0 0 40px rgba(34, 211, 238, 0.3);
+  --shadow-glow-emerald: 0 0 40px rgba(52, 211, 153, 0.3);
+  --shadow-glow-amber: 0 0 40px rgba(251, 191, 36, 0.3);
+  --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 20px 60px rgba(0, 0, 0, 0.5);
+  
+  /* Timing - Enhanced with better easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 800ms;
+}
+
+/* ============================================
+   SCROLL-TRIGGERED ANIMATIONS
+   ============================================ */
+
+/* Base animation class */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children animations */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-normal) var(--ease-out-expo),
+              transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.stagger-children.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+.stagger-children.is-visible > *:nth-child(2) { transition-delay: 80ms; }
+.stagger-children.is-visible > *:nth-child(3) { transition-delay: 160ms; }
+.stagger-children.is-visible > *:nth-child(4) { transition-delay: 240ms; }
+.stagger-children.is-visible > *:nth-child(5) { transition-delay: 320ms; }
+.stagger-children.is-visible > *:nth-child(6) { transition-delay: 400ms; }
+.stagger-children.is-visible > *:nth-child(7) { transition-delay: 480ms; }
+.stagger-children.is-visible > *:nth-child(8) { transition-delay: 560ms; }
+
+.stagger-children.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade variants */
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.fade-in-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-back);
+}
+
+.fade-in-left.is-visible,
+.fade-in-right.is-visible,
+.fade-in-scale.is-visible {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* ============================================
+   GLASSMORPHISM CARDS
+   ============================================ */
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  will-change: transform, box-shadow;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--glass-border-hover);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-glow-cyan), var(--shadow-card-hover);
+}
+
+/* Glass card variants */
+.glass-card-emerald:hover {
+  box-shadow: var(--shadow-glow-emerald), var(--shadow-card-hover);
+}
+
+.glass-card-amber:hover {
+  box-shadow: var(--shadow-glow-amber), var(--shadow-card-hover);
+}
+
+/* ============================================
+   GRADIENT TEXT & EFFECTS
+   ============================================ */
+
+.gradient-text-animated {
+  background: linear-gradient(90deg, var(--cm-cyan), var(--cm-emerald), var(--cm-amber), var(--cm-cyan));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.gradient-text {
+  background: var(--cm-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================
+   BUTTON ENHANCEMENTS
+   ============================================ */
+
+.btn-primary-enhanced {
+  position: relative;
+  overflow: hidden;
+  background: var(--cm-gradient);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  will-change: transform, box-shadow;
+}
+
+.btn-primary-enhanced::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent);
+  opacity: 0;
+  transition: opacity var(--duration-normal);
+}
+
+.btn-primary-enhanced:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(34, 211, 238, 0.4);
+}
+
+.btn-primary-enhanced:hover::before {
+  opacity: 1;
+}
+
+.btn-primary-enhanced:active {
+  transform: translateY(0);
+  transition-duration: var(--duration-fast);
+}
+
+/* Button shine effect */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn-shine:hover::after {
+  transform: translateX(100%);
+}
+
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+
+.glow-cyan {
+  box-shadow: var(--shadow-glow-cyan);
+}
+
+.glow-emerald {
+  box-shadow: var(--shadow-glow-emerald);
+}
+
+.glow-amber {
+  box-shadow: var(--shadow-glow-amber);
+}
+
+.pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(34, 211, 238, 0.6); }
+}
+
+/* ============================================
+   FLOATING ANIMATIONS
+   ============================================ */
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-delayed {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+.float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* ============================================
+   CARD INTERACTIONS
+   ============================================ */
+
+.card-lift {
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  will-change: transform, box-shadow;
+}
+
+.card-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card-tilt {
+  transition: transform var(--duration-normal) var(--ease-out-expo);
+  transform-style: preserve-3d;
+}
+
+.card-tilt:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02);
+}
+
+/* ============================================
+   UNDERLINE ANIMATION
+   ============================================ */
+
+.underline-animate {
+  position: relative;
+}
+
+.underline-animate::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--cm-gradient);
+  transition: width var(--duration-normal) var(--ease-out-expo);
+}
+
+.underline-animate:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   TRUST BADGE
+   ============================================ */
+
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(34, 211, 238, 0.1);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--cm-cyan);
+  animation: fadeInUp 0.5s var(--ease-out-expo);
+}
+
+.trust-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--cm-cyan);
+  border-radius: 50%;
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   HERO BACKGROUND ANIMATION
+   ============================================ */
+
+.hero-bg-glow {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-bg-glow::before,
+.hero-bg-glow::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: glowMove 20s ease-in-out infinite;
+}
+
+.hero-bg-glow::before {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.4), transparent 70%);
+  top: -200px;
+  left: -200px;
+}
+
+.hero-bg-glow::after {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.3), transparent 70%);
+  bottom: -150px;
+  right: -150px;
+  animation-delay: -10s;
+}
+
+@keyframes glowMove {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(50px, -30px) scale(1.1); }
+  66% { transform: translate(-30px, 50px) scale(0.9); }
+}
+
+/* Mesh gradient background */
+.mesh-gradient {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(at 40% 20%, rgba(34, 211, 238, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(52, 211, 153, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(251, 191, 36, 0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(34, 211, 238, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(52, 211, 153, 0.15) 0px, transparent 50%);
+  animation: meshMove 15s ease-in-out infinite;
+}
+
+@keyframes meshMove {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+/* ============================================
+   SHIMMER LOADING EFFECT
+   ============================================ */
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* ============================================
+   NUMBER COUNTER
+   ============================================ */
+
+.counter {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ============================================
+   NAVIGATION SCROLL EFFECT
+   ============================================ */
+
+.nav-scrolled {
+  background: rgba(10, 10, 10, 0.95) !important;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   SECTION DIVIDERS
+   ============================================ */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+}
+
+.section-divider-gradient {
+  height: 2px;
+  background: var(--cm-gradient);
+  opacity: 0.5;
+}
+
+/* ============================================
+   IMAGE HOVER EFFECTS
+   ============================================ */
+
+.img-zoom {
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.img-zoom img {
+  transition: transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* ============================================
+   TEXT REVEAL ANIMATION
+   ============================================ */
+
+.text-reveal {
+  overflow: hidden;
+}
+
+.text-reveal span {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform var(--duration-slower) var(--ease-out-expo),
+              opacity var(--duration-slower) var(--ease-out-expo);
+}
+
+.text-reveal.is-visible span {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ============================================
+   SOCIAL PROOF BAR
+   ============================================ */
+
+.social-proof-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+}
+
+/* ============================================
+   BLOB BACKGROUND SHAPES
+   ============================================ */
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.3;
+  animation: blobMove 20s ease-in-out infinite;
+}
+
+.blob-cyan {
+  background: var(--cm-cyan);
+  width: 400px;
+  height: 400px;
+  animation-delay: 0s;
+}
+
+.blob-emerald {
+  background: var(--cm-emerald);
+  width: 300px;
+  height: 300px;
+  animation-delay: -5s;
+}
+
+.blob-amber {
+  background: var(--cm-amber);
+  width: 350px;
+  height: 350px;
+  animation-delay: -10s;
+}
+
+@keyframes blobMove {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1.1);
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.9);
+    border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+  }
+  75% {
+    transform: translate(30px, 10px) scale(1.05);
+    border-radius: 60% 40% 60% 30% / 70% 30% 50% 60%;
+  }
+}
+
+/* ============================================
+   FOCUS VISIBLE STYLES
+   ============================================ */
+
+*:focus-visible {
+  outline: 2px solid var(--cm-cyan);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-on-scroll,
+  .fade-in-left,
+  .fade-in-right,
+  .fade-in-scale,
+  .text-reveal span {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================
+   MOBILE OPTIMIZATIONS
+   ============================================ */
+
+@media (max-width: 768px) {
+  .glass-card:hover {
+    transform: none;
+    box-shadow: var(--glass-border);
+  }
+  
+  .card-lift:hover {
+    transform: none;
+  }
+  
+  .blob {
+    display: none;
+  }
+  
+  .hero-bg-glow::before,
+  .hero-bg-glow::after {
+    width: 300px;
+    height: 300px;
+  }
+}

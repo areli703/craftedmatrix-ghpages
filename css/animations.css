@@ -1,0 +1,349 @@
+/* ============================================
+   CRAFTED MATRIX - ADVANCED ANIMATIONS & EFFECTS
+   ============================================ */
+
+/* --- CSS Custom Properties for Design System --- */
+:root {
+  /* Brand Colors */
+  --cm-cyan: #22d3ee;
+  --cm-emerald: #34d399;
+  --cm-amber: #fbbf24;
+  --cm-gradient: linear-gradient(135deg, var(--cm-cyan), var(--cm-emerald), var(--cm-amber));
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(20px);
+  
+  /* Shadows */
+  --shadow-glow: 0 0 40px rgba(34, 211, 238, 0.15);
+  --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.4);
+  
+  /* Timing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+/* --- Scroll-Triggered Animation Classes --- */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children animations */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-normal) var(--ease-out-expo),
+              transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.stagger-children.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+.stagger-children.is-visible > *:nth-child(2) { transition-delay: 80ms; }
+.stagger-children.is-visible > *:nth-child(3) { transition-delay: 160ms; }
+.stagger-children.is-visible > *:nth-child(4) { transition-delay: 240ms; }
+.stagger-children.is-visible > *:nth-child(5) { transition-delay: 320ms; }
+.stagger-children.is-visible > *:nth-child(6) { transition-delay: 400ms; }
+
+.stagger-children.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Fade In Variants --- */
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.fade-in-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.fade-in-left.is-visible,
+.fade-in-right.is-visible,
+.fade-in-scale.is-visible {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* --- Glassmorphism Cards --- */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow), var(--shadow-card);
+}
+
+/* --- Gradient Text Animation --- */
+.gradient-text-animated {
+  background: linear-gradient(90deg, var(--cm-cyan), var(--cm-emerald), var(--cm-amber), var(--cm-cyan));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* --- Shimmer/Loading Effect --- */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* --- Button Enhancements --- */
+.btn-primary-enhanced {
+  position: relative;
+  overflow: hidden;
+  background: var(--cm-gradient);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.btn-primary-enhanced::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent);
+  opacity: 0;
+  transition: opacity var(--duration-normal);
+}
+
+.btn-primary-enhanced:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(34, 211, 238, 0.4);
+}
+
+.btn-primary-enhanced:hover::before {
+  opacity: 1;
+}
+
+.btn-primary-enhanced:active {
+  transform: translateY(0);
+}
+
+/* --- Glow Effects --- */
+.glow-cyan {
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.3);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 30px rgba(52, 211, 153, 0.3);
+}
+
+.glow-amber {
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
+}
+
+/* --- Floating Animation --- */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-delayed {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* --- Pulse Glow --- */
+.pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(34, 211, 238, 0.6); }
+}
+
+/* --- Card Hover Lift --- */
+.card-lift {
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.card-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Underline Animation --- */
+.underline-animate {
+  position: relative;
+}
+
+.underline-animate::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--cm-gradient);
+  transition: width var(--duration-normal) var(--ease-out-expo);
+}
+
+.underline-animate:hover::after {
+  width: 100%;
+}
+
+/* --- Number Counter Animation --- */
+.counter {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Trust Badge --- */
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(34, 211, 238, 0.1);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #22d3ee;
+}
+
+.trust-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #22d3ee;
+  border-radius: 50%;
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+/* --- Section Divider --- */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+}
+
+/* --- Hero Background Animation --- */
+.hero-bg-glow {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-bg-glow::before,
+.hero-bg-glow::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: glowMove 20s ease-in-out infinite;
+}
+
+.hero-bg-glow::before {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.4), transparent 70%);
+  top: -200px;
+  left: -200px;
+}
+
+.hero-bg-glow::after {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.3), transparent 70%);
+  bottom: -150px;
+  right: -150px;
+  animation-delay: -10s;
+}
+
+@keyframes glowMove {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(50px, -30px) scale(1.1); }
+  66% { transform: translate(-30px, 50px) scale(0.9); }
+}
+
+/* --- Reduced Motion Support --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-on-scroll,
+  .fade-in-left,
+  .fade-in-right,
+  .fade-in-scale {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Mobile Optimizations --- */
+@media (max-width: 768px) {
+  .glass-card:hover {
+    transform: none;
+  }
+  
+  .card-lift:hover {
+    transform: none;
+  }
+}
